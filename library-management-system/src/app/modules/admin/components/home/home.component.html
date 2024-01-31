@@ -1,0 +1,40 @@
+<body>
+    <h2 class="total"></h2>
+<div   class="tiles">
+    <div style="background-color: rgba(45, 52, 255, 0.419);" class="tile">
+        <div class="num">
+            <h1 class="enlarge">{{ books.length }}</h1>
+            <h1>Total Books</h1>
+        </div>
+    </div>
+    <div style="background-color: rgba(100, 255, 57, 0.475);" class="tile">
+        <div class="num">
+            <h1 class="enlarge">{{ available.length }}</h1>
+            <h1>Currently Available</h1>
+        </div>
+    </div>
+    <div style="background-color: rgba(255, 57, 57, 0.475);" class="tile">
+        <div class="num">
+            <h1 class="enlarge">{{ borrowed.length }}</h1>
+            <h1>Currently Borrowed</h1>
+        </div>
+    </div>
+</div>
+<h2 class="heading" id="history">Recently added books</h2>
+<div *ngFor="let book of books | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: books.length }" class="container">
+    <div class="images">
+        <img src="http://localhost:3000/images/{{ book.image }}" alt="Book Photo">
+    </div>
+        <div class="product">
+            <h2>{{ book.title }}</h2>
+            <h1>{{ book.author }}</h1>
+            <p class="desc">{{ book.description }}</p>
+            <h4 style="color: #ffffff">{{ book.category}}</h4>
+            <h4 style="color: #ffffff">{{ book.status }}</h4>
+        </div>
+        <div style="position: absolute;"class="buttons">
+            <button class="add">Delete</button>
+        </div>
+</div>
+</body>
+<app-admin-dashboard></app-admin-dashboard>

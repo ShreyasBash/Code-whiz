@@ -1,0 +1,54 @@
+<div class="container">
+    <div>
+        <form [formGroup]="bookForm" (ngSubmit)="addBook()" enctype="multipart/form-data">	
+            <h3 class="head">Add Book</h3>
+            <div class="grid">
+                <div>
+                    <div>
+                        <label>Title:</label>
+                        <input type="text" name="title" formControlName="title">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Author:</label>
+                        <input type="text" name="author" formControlName="author" >
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <div>
+                        <label>Description:</label>
+                        <textarea class="addressbar" style="background-color: rgba(255, 255, 255, 0.07)" type="text" formControlName="description" ></textarea>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Category:</label>
+                        <input type="text" formControlName="category" >
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div>
+                    <div>
+                        <label>Book Photo:</label>
+                        <input class="choose" style="height: 2rem" type="file" (change)="onFileSelected($event)" formControlName="image">
+                    </div>
+                </div>
+            </div>
+
+            
+            <div>
+                <div>
+                    <div>
+                        <button type="submit">Add Book</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<app-admin-dashboard></app-admin-dashboard>

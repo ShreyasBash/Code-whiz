@@ -1,0 +1,97 @@
+form{
+    height: 80vh;
+    width: 76vw;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 25rem;
+    left: 53rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 30px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 80%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 10px;
+    width: 20%;
+    background-color: #23a2f6;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.link{
+    text-align: center;
+    margin: 2rem auto 0;
+}
+.error{
+    color: red;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-area: auto;
+	column-gap: 0rem;
+	row-gap: 0.9rem;
+    width: 100%;
+}
+
+select {
+    width: 40%;
+    margin: 10px 0px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+}
+
+
+.addressbar {
+    position: relative;
+    height: 6rem;
+    width: 28.2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.head {
+    display: flex;
+}

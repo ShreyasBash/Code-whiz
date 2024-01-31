@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <body>
+        <div class="search__container"><input class="search__input" type="text" placeholder="Search" [(ngModel)]="searchKeyword" (keydown.enter)="searchBooks()"></div>
+        <h2 class="total">Total books: {{ books.length }} </h2>
+
+        <div  *ngFor="let book of books | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: books.length }" class="container">
+            <div class="images">
+                <img src="http://localhost:3000/images/{{ book.image }}" alt="Book Photo">
+            </div>
+                <div class="product">
+                    <h2>{{ book.title }}</h2>
+                    <h1>{{ book.author }}</h1>
+                    <p class="desc">{{ book.description }}</p>
+                    <h4 style="color: #ffffff">{{ book.category }}</h4>
+                    <h3 style="color: #ffffff">{{ book.status }}</h3>
+                    <div class="buttons">
+                        <button class="add" (click)="deleteBook(book._id)" >Delete</button>
+                    </div>
+                </div>
+        </div>
+        <div class="containerp" *ngIf="books.length > itemsPerPage">
+            <button class="paginationp" style="top: -2.3rem; left: -1rem; background-color: rgba(255, 255, 255, 0.13);" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+           <span style="color: #ffffff" >Page {{ currentPage }} of {{ totalPages }}</span>
+        <button class="paginationn" style="top: -2.3rem; left: 14rem; background-color: rgba(255, 255, 255, 0.13);" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+        </div>
+          
+</body>
+<app-admin-dashboard></app-admin-dashboard>

@@ -1,0 +1,42 @@
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" />
+    
+    <div class="dashboard">
+        <h3>CodeWhiz</h3>
+        <ul class="nav-menu">
+            <li routerLinkActive="active"><a routerLink="/client/home">Dashboard</a></li>
+            <li routerLinkActive="active"><a routerLink="/client/courses">Courses</a></li>
+            <li routerLinkActive="active"><a routerLink="/client/history">Projects</a></li>
+            <li routerLinkActive="active"><a routerLink="/client/book">Books</a></li>
+        </ul>
+        <div>
+            <a class="profile" routerLink="/client/profile">Edit Profile</a>
+            <a (click)="logout()"class="logout" routerLink="/login">Log out</a>
+        </div>
+    </div>
+    <div class="user">
+        <p>Hi {{name}}</p>
+
+    </div>
+
+    <div class="note">
+    <div *ngFor="let notification of notifications; let i = index" class="alert">
+        <span class="icon">
+          <i class="fa fa-book"></i>
+        </span>
+      
+        <div class="text">
+          <strong>Notifications</strong>
+          <p>{{ notification }}</p>
+        </div>
+      
+        <button class="close" (click)="closeNotification(i)">
+          <i class="fa fa-close"></i>
+        </button>
+      </div>
+    </div>
+
+

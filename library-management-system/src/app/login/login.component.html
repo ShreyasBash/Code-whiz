@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+ <!-- Design by foolishdeveloper.com -->
+ <title>Glassmorphism login Form Tutorial in html css</title>
+ 
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+ <!--Stylesheet-->
+ 
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+        <h3>Login Here</h3>
+      
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email" id="email" formControlName="email">
+      
+        <!-- Add a null check before accessing properties -->
+        <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" style="color:red">
+          Email is required
+        </div>
+        <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" style="color:red">
+          Invalid email 
+        </div>
+      
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" formControlName="password">
+      
+        <!-- Add a null check before accessing properties -->
+        <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" style="color:red">
+          Password is required
+        </div>
+
+        <div *ngIf="incorrectPasswordError" style="color:red">
+            {{incorrectPasswordError}}
+          </div>
+      
+        <button type="submit" [disabled]="loginForm.invalid">Sign In</button>
+        <div class="link">
+          <a routerLink="/register">Create a new account</a>
+        </div>
+      </form>      
+</body>
+</html>

@@ -1,0 +1,40 @@
+<body>
+    <h2 class="total"></h2>
+<div   class="tiles">
+    <div style="background-color: rgba(189, 56, 255, 0.419);" class="tile">
+        <div class="num">
+            <h1 class="enlarge">{{ borrows.length }}</h1>
+            <h1>Enrolled</h1>
+        </div>
+    </div>
+    <div style="background-color: rgba(100, 255, 57, 0.475);" class="tile">
+        <div class="num">
+            <h1 class="enlarge">{{ returns.length }}</h1>
+            <h1>Completed</h1>
+        </div>
+    </div>
+    <div style="background-color: rgba(255, 57, 57, 0.475);" class="tile">
+        <div class="num">
+            <h1 class="enlarge">{{ pending.length }}</h1>
+            <h1>Pending</h1>
+        </div>
+    </div>
+</div>
+<h2 class="heading" id="history">History</h2>
+<div  *ngFor="let borrow of borrows" class="container">
+    <div class="images">
+        <img src="http://localhost:3000/images/{{ borrow.book.image }}" alt="Book Photo">
+    </div>
+        <div class="product">
+            <h2>{{ borrow.book.title }}</h2>
+            <h1>{{ borrow.book.author }}</h1>
+            <p class="desc">{{ borrow.book.description }}</p>
+            <h4 style="color: #ffffff">{{ borrow.book.category }}</h4>
+            <h4 style="color: #ffffff">Borrowed from: {{ borrow.borrowedDate }} - {{ borrow.returnedDate }}</h4>
+        </div>
+        <div style="position: absolute;"class="buttons">
+            <button class="add" (click)="returnBook(borrow._id)" *ngIf="borrow.status === 'Borrowed'">Continue</button>
+        </div>
+</div>
+</body>
+<app-user-dasboard></app-user-dasboard>

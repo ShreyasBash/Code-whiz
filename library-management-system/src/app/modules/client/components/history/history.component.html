@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<body>
+    <h2 class="total">Total project completed: {{ borrows.length }}</h2>
+<div  *ngFor="let borrow of borrows" class="container">
+    <div class="images">
+        <img src="http://localhost:3000/images/{{ borrow.book.image }}" alt="Book Photo">
+    </div>
+        <div class="product">
+            <h2>{{ borrow.book.title }}</h2>
+            <h1>{{ borrow.book.author }}</h1>
+            <p class="desc">{{ borrow.book.description }}</p>
+            <h4 style="color: #ffffff">{{ borrow.book.category }}</h4>
+            <div class="buttons">
+                <button class="add" (click)="returnBook(borrow._id)">Continue</button>
+            </div>
+        </div>
+</div>
+</body>
+<app-user-dasboard></app-user-dasboard>

@@ -1,0 +1,73 @@
+<div class="container">
+    <div>
+        <form [formGroup]="updateForm" (ngSubmit)="updateUser()">	
+            <h3 class="head">Edit Personal Information</h3>
+            <div class="grid">
+                <div>
+                    <div>
+                        <label>First Name:</label>
+                        <input type="text" name="firstname" formControlName="firstname" [placeholder]="profile.firstname || 'First Name'">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Last Name:</label>
+                        <input type="text" name="lastname" formControlName="lastname" [placeholder]="profile.lastname || 'Last Name'">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <div>
+                        <label>Email Address:</label>
+                        <input type="email" name="email" formControlName="email" [placeholder]="profile.email || 'Email Address'">
+                    </div>
+                    <div *ngIf="updateForm.get('email')?.hasError('email') && updateForm.get('email')?.touched" style="color:red">
+                        Invalid email
+                      </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Mobile Number:</label>
+                        <input type="tel" name="phone" formControlName="phone" [placeholder]="profile.phone || 'Mobile Number'">
+                      </div>
+                      <div *ngIf="updateForm.get('phone')?.hasError('minlength') && updateForm.get('phone')?.touched" style="color:red">
+                        Mobile number must be at least 10 digits.
+                      </div>
+                      <div *ngIf="updateForm.get('phone')?.hasError('maxlength') && updateForm.get('phone')?.touched" style="color:red">
+                        Mobile number cannot exceed 10 digits.
+                      </div>
+                      <div *ngIf="updateForm.get('phone')?.hasError('pattern') && updateForm.get('phone')?.touched" style="color:red">
+                        Invalid phone number
+                      </div>
+                      
+                </div>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <div>
+                        <label>Address:</label>
+                        <textarea class="addressbar" style="background-color: rgba(255, 255, 255, 0.07)" type="text" formControlName="address" [placeholder]="profile.address || 'Address'"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Date Of Birth:</label>
+                        <input type="date" formControlName="DOB" [value]="profile.DOB">
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <div>
+                        <button type="submit" [disabled]="updateForm.invalid">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<app-user-dasboard></app-user-dasboard>
