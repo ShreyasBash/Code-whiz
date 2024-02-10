@@ -11,6 +11,26 @@
  
 </head>
 <body>
+  <header class="navigation-header">
+    <nav>
+        <div class="logo-container">
+            <a href="./index.html">Code Whiz</a>
+        </div>
+        <div class="navigation-items" id="navigation-items">
+            <a href="">Courses</a>
+            <a href="">Projects</a>
+            <a href="">Challenges</a>
+        </div>
+        <div class="hamburger">
+            <span id="openHam">&#9776;</span>
+            <span id="closeHam">&#x2716;</span>
+        </div>
+    </nav>
+ </header>
+ <div>
+  <img src="./img/CodeWhiz.png"  alt="Code Whiz">
+</div>
+
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
@@ -19,7 +39,7 @@
         <h3>Login Here</h3>
       
         <label for="email">Email</label>
-        <input type="email" placeholder="Email" id="email" formControlName="email">
+        <input type="email" placeholder="Email" id="email" formControlName="email" >
       
         <!-- Add a null check before accessing properties -->
         <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" style="color:red">
